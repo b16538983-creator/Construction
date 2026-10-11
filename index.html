@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Construction</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: white;
+        }
+
+        header {
+            min-height: 643px;
+            width: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)), url("./img/header-bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+        }
+
+        .navbar {
+            padding: 15px 0;
+            background: transparent;
+        }
+
+        .navbar .container {
+            max-width: 1160px;
+            padding-top: 0px;
+        }
+
+        .navbar-brand img {
+            width: 180px;
+            height: auto;
+        }
+
+        .navbar-nav {
+            gap: 8px;
+            align-items: center;
+        }
+
+        .navbar .nav-link {
+            color: white !important;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 10px 9px !important;
+            transition: 0.3s;
+        }
+
+        .hero {
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px 100px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            width: 100%;
+        }
+
+        .hero h4 {
+            font-size: 19px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            line-height: 1.15;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #f1f1f1;
+            margin-bottom: 17px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: #ffb900;
+            color: white;
+            text-decoration: none;
+            padding: 13px 32px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.4s ease;
+            border: 1px solid transparent;
+        }
+
+        .hero-btn:hover {
+            border: 1px solid #fff;
+            background: transparent;
+            color: #fff;
+        }
+
+        @media (max-width: 991px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .navbar-collapse {
+                background: rgba(0, 0, 0, 0.9);
+                padding: 15px;
+                margin-top: 12px;
+            }
+
+            .navbar-nav {
+                align-items: flex-start;
+                gap: 0;
+            }
+
+            .navbar-toggler {
+                border: 1px solid white;
+            }
+
+            .navbar-toggler-icon {
+                filter: brightness(0) invert(1);
+            }
+
+            .hero {
+                min-height: 550px;
+                padding-bottom: 70px;
+            }
+
+            .hero h4 {
+                font-size: 15px;
+                letter-spacing: 2px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                min-height: 600px;
+            }
+
+            .navbar-brand img {
+                width: 155px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 12px;
+            }
+        }
+
+        .navbar .dropdown-menu {
+            background-color: white;
+            border: none;
+            border-radius: 0;
+            min-width: 200px;
+            padding: 10px 0;
+            margin-top: 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+
+        @media (min-width: 992px) {
+
+            .navbar .dropdown-menu {
+                display: block;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(10px);
+
+                transition:
+                    opacity 0.3s ease,
+                    transform 0.3s ease,
+                    visibility 0s linear 0.3s;
+            }
+
+            .navbar .dropdown:hover>.dropdown-menu,
+            .navbar .dropdown:focus-within>.dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+
+                transition:
+                    opacity 0.3s ease,
+                    transform 0.3s ease,
+                    visibility 0s;
+            }
+        }
+
+        .navbar .dropdown-menu .dropdown-item {
+            color: #444;
+            font-size: 13px;
+            padding: 12px 20px;
+            transition: color 0.3s ease,
+                background-color 0.3s ease;
+        }
+
+        .navbar .dropdown-menu .dropdown-item:hover {
+            background-color: #f5f5f5;
+            color: #ffb900;
+        }
+
+
+        .services-section {
+            background-color: #fff;
+            padding: 85px 0 90px;
+        }
+
+        .services-container {
+            max-width: 1110px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .service-box {
+            padding: 10px 0;
+        }
+
+        .service-icon img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .service-box h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #292929;
+            margin-bottom: 20px;
+        }
+
+        .service-box p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #888;
+            margin-bottom: 0;
+        }
+
+        .services-line {
+            border: 0;
+            border-top: 1px solid #eeeeee;
+            margin-top: 115px;
+            opacity: 1;
+        }
+
+        @media (max-width: 767px) {
+            .services-section {
+                padding: 50px 0;
+            }
+
+            .service-box {
+                margin-bottom: 35px;
+            }
+
+            .services-line {
+                margin-top: 30px;
+            }
+        }
+
+        .features-section {
+            background-color: #fff;
+            padding: 15px 0 25px;
+        }
+
+        .features-container {
+            max-width: 1110px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .features-heading {
+            text-align: center;
+            margin-bottom: 76px;
+        }
+
+        .features-heading h2 {
+            font-size: 34px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .features-heading p {
+            font-size: 14px;
+            color: #888;
+            margin: 0;
+        }
+
+        .feature-card {
+            background-color: #f8f8ff;
+            padding: 20px;
+            height: 100%;
+            transition: 0.4s ease;
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 187px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 19px;
+        }
+
+        .feature-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 19px;
+        }
+
+        .feature-card p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #777;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 767px) {
+            .features-section {
+                padding: 35px 0;
+            }
+
+            .features-heading {
+                margin-bottom: 35px;
+            }
+
+            .features-heading h2 {
+                font-size: 25px;
+            }
+
+            .feature-card {
+                margin-bottom: 25px;
+            }
+
+            .feature-card img {
+                height: 200px;
+            }
+        }
+
+        ::selection {
+            background-color: #fab700;
+            color: #fff;
+        }
+
+        .feature-card:hover {
+            background-color: #fab700;
+        }
+
+
+
+        .choose-section {
+            background: white;
+            padding: 75px 0 60px;
+        }
+
+        .choose-container {
+            width: 90%;
+            max-width: 1320px;
+            margin: auto;
+        }
+
+        .choose-heading {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .choose-heading h2 {
+            font-size: 34px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .choose-heading p {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .choose-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 35px;
+        }
+
+        .choose-image {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .choose-image .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .choose-image .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 185, 0, 0.86);
+            transform: translateY(-100%);
+            transition: transform 0.5s ease;
+            overflow: hidden;
+        }
+
+        .choose-image:hover .overlay {
+            transform: translateY(0);
+        }
+
+        .choose-image .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 85%;
+            transform: translate(-50%, -50%);
+            color: #222;
+            text-align: left;
+            white-space: normal;
+        }
+
+        .choose-image .text h3 {
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 18px;
+        }
+
+        .choose-image .text p {
+            font-size: 12px;
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .choose-gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 25px;
+            }
+
+            .choose-heading {
+                margin-bottom: 50px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .choose-section {
+                padding: 45px 0;
+            }
+
+            .choose-heading h2 {
+                font-size: 25px;
+            }
+
+            .choose-gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .choose-image {
+                height: 1500px;
+            }
+
+            .choose-image .text h3 {
+                font-size: 27px;
+            }
+        }
+
+        .slider-line {
+            width: 100%;
+            height: 2px;
+            background-color: #f1f1f1;
+            gap: 100px;
+        }
+
+        .slider-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background-color: #eeeeee;
+            flex-shrink: 0;
+        }
+
+        .slider-dot.active {
+            background-color: rgb(255, 185, 0);
+        }
+
+        .stats-section .row {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .stats-section .row>div {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+
+        .stat-box h2 {
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        .stat-box p {
+            font-size: 15px;
+            white-space: nowrap;
+        }
+
+        .stats-section {
+            background-color: #ffb900;
+            height: 199px;
+        }
+
+        .container {
+            /* margin-top: 50px; */
+            padding-top: 70px;
+        }
+
+
+        .best-section {
+            background: #fff;
+            padding: 80px 0;
+        }
+
+        .best-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .best-heading h2 {
+            color: #222;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .best-heading p {
+            color: #888;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .best-card {
+            background: #f8f8ff;
+            padding: 45px 30px;
+            height: 100%;
+            transition: all 0.4s ease;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .card-title i {
+            font-size: 20px;
+            color: #222;
+        }
+
+        .card-title h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #222;
+            margin: 0;
+        }
+
+        .best-card p {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        .best-card:hover {
+            background-color: rgba(255, 185, 0, 0.86);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.466);
+            transition: 0.4s ease;
+        }
+
+        @media (max-width: 767px) {
+            .best-section {
+                padding: 50px 0;
+            }
+
+            .best-heading h2 {
+                font-size: 27px;
+            }
+
+            .best-heading {
+                margin-bottom: 35px;
+            }
+
+            .best-card {
+                padding: 30px 22px;
+            }
+        }
+
+        .testimonial-section {
+            position: relative;
+            width: 100%;
+            padding: 120px 0;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+                url("./img/testimonial-bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .testimonial-container {
+            max-width: 1140px;
+            width: 90%;
+            margin: auto;
+        }
+
+        .testimonial-card {
+            background-color: #fff;
+            padding: 25px 30px;
+            min-height: 188px;
+            height: 100%;
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .testimonial-avatar {
+            width: 38px;
+            height: 38px;
+            min-width: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-content p {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 0 0 14px;
+        }
+
+        .testimonial-content h3 {
+            color: #222;
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-content span {
+            color: #888;
+            font-size: 13px;
+        }
+
+        h3 {
+            transition: all 0.3s ease;
+        }
+
+        h3:hover {
+            color: #ffb900;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .testimonial-controls {
+            position: absolute;
+            right: 4%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-controls button {
+            width: 44px;
+            height: 44px;
+            border: none;
+            background: #fff;
+            color: #333;
+            font-size: 22px;
+            transition: 0.3s ease;
+        }
+
+        .testimonial-controls button:hover {
+            background: #ffb900;
+            color: #fff;
+        }
+
+        @media (max-width: 991px) {
+            .testimonial-section {
+                padding: 70px 0;
+            }
+
+            .testimonial-controls {
+                position: static;
+                transform: none;
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .testimonial-section {
+                padding: 45px 0;
+            }
+
+            .testimonial-card {
+                padding: 22px;
+                gap: 15px;
+            }
+
+            .testimonial-content p {
+                font-size: 12px;
+            }
+
+            .testimonial-content h3 {
+                font-size: 15px;
+            }
+        }
+
+        .blog-section {
+            background: #fff;
+            padding: 20px 0 45px;
+        }
+
+        .blog-container {
+            max-width: 1126px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .blog-heading {
+            text-align: center;
+            margin-bottom: 76px;
+        }
+
+        .blog-heading h2 {
+            color: #222;
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .blog-heading p {
+            color: #888;
+            font-size: 14px;
+            margin: 0;
+        }
+
+
+        .blog-card img {
+            width: 100%;
+            height: 213px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 18px;
+        }
+
+        .blog-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #222;
+            margin: 0 10px 20px;
+        }
+
+        .blog-card p {
+            font-size: 13px;
+            line-height: 1.75;
+            color: #777;
+            margin: 0 10px 18px;
+        }
+
+        .blog-read-more {
+            display: inline-block;
+            color: #222;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .blog-read-more:hover {
+            color: #ffb900;
+        }
+
+        .blog-list-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 10px;
+            align-items: flex-start;
+        }
+
+        .blog-list-item img {
+            width: 100px;
+            height: 80px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .blog-list-content h3 {
+            font-size: 13px;
+            color: #222;
+            font-weight: 600;
+            margin: 0 0 10px;
+        }
+
+        .blog-list-content p {
+            font-size: 13px;
+            color: #888;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 991px) {
+            .blog-list {
+                margin-top: 35px;
+            }
+
+            .blog-heading {
+                margin-bottom: 45px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .blog-section {
+                padding: 35px 0;
+            }
+
+            .blog-heading h2 {
+                font-size: 27px;
+            }
+
+            .blog-heading p {
+                font-size: 12px;
+            }
+
+            .blog-card img {
+                height: 210px;
+            }
+
+            .blog-list-item {
+                gap: 14px;
+            }
+
+            .blog-list-item img {
+                width: 85px;
+                height: 75px;
+            }
+
+            .blog-list-content p {
+                white-space: normal;
+                font-size: 12px;
+            }
+        }
+
+
+        .logo-showcase {
+            background-color: #f8f8ff;
+            padding: 65px 35px;
+            margin: 8px 6px;
+        }
+
+        .logo-showcase .logo-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            align-items: center;
+            gap: 35px;
+        }
+
+        .brand-logo {
+            color: #aaa;
+            text-align: center;
+            min-width: 0;
+        }
+
+        .brand-logo h3 {
+            font-family: Georgia, serif;
+            font-size: 24px;
+            font-weight: 900;
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        .brand-logo p {
+            font-size: 7px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin: 6px 0 0;
+        }
+
+        .brand-logo .logo-line {
+            width: 70%;
+            height: 1px;
+            background: #bbb;
+            margin: 7px auto;
+        }
+
+        .brand-logo .logo-pill {
+            display: inline-block;
+            border: 2px solid #bbb;
+            border-radius: 30px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .brand-logo .small-label {
+            font-size: 8px;
+            letter-spacing: 1px;
+            margin: 7px 0;
+        }
+
+        .brand-logo .premium {
+            font-family: Georgia, serif;
+            font-size: 27px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .brand-logo .mountain {
+            font-size: 31px;
+            line-height: 1;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .logo-showcase {
+                padding: 40px 20px;
+            }
+
+            .logo-showcase .logo-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 35px 20px;
+            }
+
+            .brand-logo h3 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .logo-showcase .logo-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-section {
+            width: 100%;
+            background-color: #ffffff;
+            padding: 15px 20px 100px;
+            /* border-top: 2px solid #333333; */
+        }
+
+        .contact-header {
+            text-align: center;
+        }
+
+        .contact-header h2 {
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 1.5;
+            color: #111111;
+            margin-bottom: 3px;
+        }
+
+        .contact-header p {
+            color: #777777;
+            font-size: 13px;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .contact-form {
+            max-width: 1110px;
+            width: 100%;
+            margin: 106px auto 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            border: 1px solid #ccd2dc;
+            background-color: #ffffff;
+            color: #333333;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            font-weight: 300;
+            border-radius: 0;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input {
+            height: 50px;
+            padding: 0 15px;
+        }
+
+        .contact-form textarea {
+            height: 180px;
+            padding: 7px 12px;
+            resize: vertical;
+            display: block;
+        }
+
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #58677f;
+            opacity: 1;
+        }
+
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #ffb900;
+        }
+
+
+        .contact-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+
+        .contact-btn {
+            width: 193px;
+            height: 44px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 30px;
+            background-color: #ffb900;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #e9a700;
+        }
+
+        .contact-btn span {
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 1;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 35px 20px 60px;
+            }
+
+            .contact-header h2 {
+                font-size: 28px;
+                line-height: 1.3;
+            }
+
+            .contact-header p {
+                font-size: 12px;
+                margin-top: 10px;
+            }
+
+            .contact-form {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-top: 45px;
+            }
+
+            .contact-left {
+                gap: 15px;
+            }
+
+            .contact-form textarea {
+                height: 160px;
+            }
+
+            .contact-btn {
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .contact-section {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .contact-header h2 {
+                font-size: 24px;
+            }
+
+            .contact-header p {
+                font-size: 11px;
+            }
+
+            .contact-btn {
+                width: 180px;
+            }
+        }
+
+
+        /* ================= FOOTER SECTION ================= */
+
+        .site-footer {
+            background: #222222;
+            color: #ffffff;
+            padding-top: 85px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1110px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 0.9fr 1.2fr 1.5fr;
+            gap: 60px;
+            padding-bottom: 65px;
+        }
+
+        .footer-column h3 {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 28px;
+        }
+
+        .footer-column p {
+            color: #777777;
+            font-size: 13px;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        /* Contact numbers */
+
+        .footer-phones {
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px;
+        }
+
+        .footer-phones a {
+            color: #ffb900;
+            text-decoration: none;
+            font-size: 23px;
+            font-weight: 600;
+            line-height: 1.35;
+            transition: 0.3s;
+        }
+
+        .footer-phones a:hover {
+            color: #ffffff;
+        }
+
+        /* Newsletter */
+
+        .footer-newsletter-form {
+            display: flex;
+            width: 100%;
+            height: 44px;
+            background: #ffffff;
+            border-radius: 30px;
+            overflow: hidden;
+            margin-top: 18px;
+        }
+
+        .footer-newsletter-form input {
+            flex: 1;
+            min-width: 0;
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 0 14px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            color: #333333;
+        }
+
+        .footer-newsletter-form input::placeholder {
+            color: #777777;
+        }
+
+        .footer-newsletter-form button {
+            width: 78px;
+            flex-shrink: 0;
+            border: none;
+            border-radius: 30px;
+            background: #ffb900;
+            color: #222222;
+            font-size: 22px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .footer-newsletter-form button:hover {
+            background: #e5a600;
+        }
+
+        /* Footer bottom */
+
+        .footer-bottom {
+            border-top: 1px solid #333333;
+            padding: 30px 0;
+        }
+
+        .footer-bottom-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-copyright {
+            color: #777777;
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .footer-copyright span {
+            color: #ffb900;
+        }
+
+        /* Social icons */
+
+        .footer-socials {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .footer-socials a {
+            width: 41px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #111111;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .footer-socials a:hover {
+            background: #ffb900;
+            color: #222222;
+        }
+
+        /* Responsive footer */
+
+        @media (max-width: 991px) {
+            .site-footer {
+                padding-top: 60px;
+            }
+
+            .footer-main {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 40px;
+            }
+
+            .footer-newsletter {
+                grid-column: 1 / -1;
+            }
+
+            .footer-phones a {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .site-footer {
+                padding-top: 45px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                padding-bottom: 40px;
+            }
+
+            .footer-newsletter {
+                grid-column: auto;
+            }
+
+            .footer-column h3 {
+                margin-bottom: 18px;
+            }
+
+            .footer-phones a {
+                font-size: 20px;
+            }
+
+            .footer-bottom-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-copyright {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+
+                <a class="navbar-brand" href="#">
+                    <img src="./img/logo.png" alt="Construction Logo">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">HOME</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">FEATURE</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">PROJECT</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">SERVICE</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">BLOG</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">CONTACT</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                PAGES
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Generic</a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="#">Elements</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#">About Us</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Our Team</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Contact</a>
+                            </li>
+                        </ul>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+
+                <h4>DISCOVER THE COLORFUL WORLD</h4>
+
+                <h1>BUILD YOUR DREAM</h1>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor<br class="d-none d-md-block">
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+                </p>
+
+                <a href="#" class="hero-btn">
+                    DISCOVER NOW
+                </a>
+
+            </div>
+        </section>
+
+    </header>
+
+
+    <!-- Services Section -->
+    <main id="discover" class="services-section">
+
+        <div class="services-container">
+
+            <div class="row">
+
+                <!-- Service 1 -->
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <img src="./img/f1.png" alt="Building Drawings">
+                        </div>
+
+                        <h3>Building Drawings</h3>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consecteturadipis
+                            icing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <img src="./img/f2.png" alt="Building Drawings">
+                        </div>
+
+                        <h3>Building Drawings</h3>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consecteturadipis
+                            icing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <img src="./img/f3.png" alt="Building Drawings">
+                        </div>
+
+                        <h3>Building Drawings</h3>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consecteturadipis
+                            icing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="services-line">
+
+            <hr>
+
+        </div>
+
+    </main>
+
+    <!-- Features Section -->
+    <section class="features-section">
+
+        <div class="features-container">
+
+            <!-- Section Heading -->
+            <div class="features-heading">
+                <h2>Some Features that Made us Unique</h2>
+                <p>Who are in extremely love with eco friendly system.</p>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- Feature 1 -->
+                <div class="col-md-4">
+                    <div class="feature-card">
+
+                        <img src="./img/s1.png" alt="Construction Team">
+
+                        <h3>Basic & Common Repairs</h3>
+
+                        <p>
+                            Computer users and programmers have become
+                            so accustomed to using Windows, even for the
+                            changing capabilities and the appearances
+                            of the graphical.
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="col-md-4">
+                    <div class="feature-card">
+
+                        <img src="./img/s2.png" alt="Building Drawings">
+
+                        <h3>Brake Repairs &amp; Services</h3>
+
+                        <p>
+                            Computer users and programmers have become
+                            so accustomed to using Windows, even for the
+                            changing capabilities and the appearances
+                            of the graphical.
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="col-md-4">
+                    <div class="feature-card">
+
+                        <img src="./img/s3.png" alt="Preventive Maintenance">
+
+                        <h3>Preventive Maintenance</h3>
+
+                        <p>
+                            Computer users and programmers have become
+                            so accustomed to using Windows, even for the
+                            changing capabilities and the appearances
+                            of the graphical.
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Why Choose Us Section -->
+    <section class="choose-section">
+
+        <div class="choose-container">
+
+            <div class="choose-heading">
+                <h2>Why Choose Us Your Fitness Builder</h2>
+                <p>
+                    Who are in extremely love with eco friendly system.</p>
+            </div>
+
+            <div class="choose-gallery">
+
+                <!-- Image 1 -->
+                <div class="choose-image">
+                    <img src="./img/p1.jpg" alt="Building 1" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>Alex Complex for <br>
+                                esidence
+                            </h3>
+                            <p>
+                                LCD screens are uniquely modern in style, and the liquid crystals that make them work
+                                have allowed humanity to create slimmer, more portable technology than we’ve ever had
+                                access to before. From your wrist watch to your laptop, a lot of the on the go
+                                electronics that we tote from place to place are only possible because of their thin,
+                                light LCD display screens. Liquid crystal display.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="choose-image">
+                    <img src="./img/p2.jpg" alt="Building 2" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>Alex Complex for <br>
+                                esidence
+                            </h3>
+                            <p>
+                                LCD screens are uniquely modern in style, and the liquid crystals that make them work
+                                have allowed humanity to create slimmer, more portable technology than we’ve ever had
+                                access to before. From your wrist watch to your laptop, a lot of the on the go
+                                electronics that we tote from place to place are only possible because of their thin,
+                                light LCD display screens. Liquid crystal display.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 3 -->
+                <div class="choose-image">
+                    <img src="./img/p3.jpg" alt="Building 3" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>Alex Complex for <br>
+                                esidence
+                            </h3>
+                            <p>
+                                LCD screens are uniquely modern in style, and the liquid crystals that make them work
+                                have allowed humanity to create slimmer, more portable technology than we’ve ever had
+                                access to before. From your wrist watch to your laptop, a lot of the on the go
+                                electronics that we tote from place to place are only possible because of their thin,
+                                light LCD display screens. Liquid crystal display.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 4 -->
+                <div class="choose-image">
+                    <img src="./img/p4.jpg" alt="Building 4" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>Alex Complex for <br>
+                                esidence
+                            </h3>
+                            <p>
+                                LCD screens are uniquely modern in style, and the liquid crystals that make them work
+                                have allowed humanity to create slimmer, more portable technology than we’ve ever had
+                                access to before. From your wrist watch to your laptop, a lot of the on the go
+                                electronics that we tote from place to place are only possible because of their thin,
+                                light LCD display screens. Liquid crystal display.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br><br>
+        <div class="container py-3">
+            <div class="slider-line d-flex justify-content-center align-items-center">
+
+                <span class="slider-dot active"></span>
+
+                <span class="slider-dot"></span>
+
+            </div>
+        </div>
+    </section>
+    <br><br><br><br><br>
+
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+
+        <div class="container stats-container">
+
+            <div class="row g-4">
+
+                <!-- Stat 1 -->
+                <div class="col-6 col-lg">
+                    <div class="stat-box">
+                        <h2>2536</h2>
+                        <p>Projects Completed</p>
+                    </div>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="col-6 col-lg">
+                    <div class="stat-box">
+                        <h2>6784</h2>
+                        <p>Really Happy Clients</p>
+                    </div>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="col-6 col-lg">
+                    <div class="stat-box">
+                        <h2>1059</h2>
+                        <p>Total Tasks Completed</p>
+                    </div>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="col-6 col-lg">
+                    <div class="stat-box">
+                        <h2>2239</h2>
+                        <p>Cups of Coffee Taken</p>
+                    </div>
+                </div>
+
+                <!-- Stat 5 -->
+                <div class="col-6 col-lg">
+                    <div class="stat-box">
+                        <h2>434</h2>
+                        <p>In House Professionals</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Why We Are The Best Section -->
+    <section class="best-section">
+        <div class="container">
+
+            <div class="best-heading">
+                <h2>Why we are the best</h2>
+                <p>Who are in extremely love with eco friendly system.</p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="best-card">
+                        <div class="card-title">
+                            <i class="bi bi-person"></i>
+                            <h3>Expert Technicians</h3>
+                        </div>
+                        <p>Usage of the Internet is becoming more common due to rapid advancement of technology and
+                            power.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="best-card">
+                        <div class="card-title">
+                            <i class="bi bi-journal-text"></i>
+                            <h3>Professional Service</h3>
+                        </div>
+                        <p>Usage of the Internet is becoming more common due to rapid advancement of technology and
+                            power.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="best-card">
+                        <div class="card-title">
+                            <i class="bi bi-telephone"></i>
+                            <h3>Great Support</h3>
+                        </div>
+                        <p>Usage of the Internet is becoming more common due to rapid advancement of technology and
+                            power.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="best-card">
+                        <div class="card-title">
+                            <i class="bi bi-rocket-takeoff"></i>
+                            <h3>Technical Skills</h3>
+                        </div>
+                        <p>Usage of the Internet is becoming more common due to rapid advancement of technology and
+                            power.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="best-card">
+                        <div class="card-title">
+                            <i class="bi bi-gem"></i>
+                            <h3>Highly Recommended</h3>
+                        </div>
+                        <p>Usage of the Internet is becoming more common due to rapid advancement of technology and
+                            power.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="best-card">
+                        <div class="card-title">
+                            <i class="bi bi-chat"></i>
+                            <h3>Positive Reviews</h3>
+                        </div>
+                        <p>Usage of the Internet is becoming more common due to rapid advancement of technology and
+                            power.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials Section -->
+    <section class="testimonial-section">
+
+        <div class="testimonial-container">
+
+            <div class="row g-4">
+
+                <!-- Testimonial 1 -->
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+
+                        <img src="./img/user1.png" alt="Customer profile" class="testimonial-avatar">
+
+                        <div class="testimonial-content">
+
+                            <p>
+                                Accessories Here you can find the best computer
+                                accessory for your laptop, monitor, printer,
+                                scanner, speaker, projector, hardware.
+                            </p>
+
+                            <h3>Mark Alviro Wiens</h3>
+                            <span>CEO at Google</span>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+
+                        <img src="./img/user2.png" alt="Customer profile" class="testimonial-avatar">
+
+                        <div class="testimonial-content">
+
+                            <p>
+                                Accessories Here you can find the best computer
+                                accessory for your laptop, monitor, printer,
+                                scanner, speaker, projector, hardware.
+                            </p>
+
+                            <h3>Mark Alviro Wiens</h3>
+                            <span>CEO at Google</span>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Up / Down Controls -->
+        <div class="testimonial-controls">
+
+            <button type="button" aria-label="Previous testimonial">
+                ↑
+            </button>
+
+            <button type="button" aria-label="Next testimonial">
+                ↓
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Latest From Blog Section -->
+    <section class="blog-section">
+
+        <div class="blog-container">
+
+            <!-- Heading -->
+            <div class="blog-heading">
+                <h2>Latest From Blog</h2>
+                <p>Who are in extremely love with eco friendly system.</p>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- Two Main Blog Cards -->
+                <div class="col-lg-8">
+
+                    <div class="row g-4">
+
+                        <!-- Blog 1 -->
+                        <div class="col-md-6">
+                            <div class="blog-card">
+
+                                <img src="./img/b1.jpg" alt="Latest blog">
+
+                                <h3>WE DO BELIEVE IN QUALITY</h3>
+
+                                <p>
+                                    inappropriate behavior is often laughed off as
+                                    “boys will be boys,” women face higher conduct
+                                    standards.
+                                </p>
+
+                                <a href="#" class="blog-read-more">
+                                    READ MORE
+                                </a>
+
+                            </div>
+                        </div>
+
+                        <!-- Blog 2 -->
+                        <div class="col-md-6">
+                            <div class="blog-card">
+
+                                <img src="./img/b2.jpg" alt="Latest blog">
+
+                                <h3>WE DO BELIEVE IN QUALITY</h3>
+
+                                <p>
+                                    inappropriate behavior is often laughed off as
+                                    “boys will be boys,” women face higher conduct
+                                    standards.
+                                </p>
+
+                                <a href="#" class="blog-read-more">
+                                    READ MORE
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Right Side Blog List -->
+                <div class="col-lg-4">
+
+                    <div class="blog-list">
+
+                        <!-- Small Blog 1 -->
+                        <div class="blog-list-item">
+                            <img src="./img/b3.jpg" alt="Blog thumbnail">
+
+                            <div class="blog-list-content">
+                                <h3>We Believe in Quality</h3>
+                                <p>21st Dec 04 Comments</p>
+                            </div>
+                        </div>
+
+                        <!-- Small Blog 2 -->
+                        <div class="blog-list-item">
+                            <img src="./img/b4.jpg" alt="Blog thumbnail">
+
+                            <div class="blog-list-content">
+                                <h3>We Believe in Quality</h3>
+                                <p>21st Dec 04 Comments</p>
+                            </div>
+                        </div>
+
+                        <!-- Small Blog 3 -->
+                        <div class="blog-list-item">
+                            <img src="./img/b5.jpg" alt="Blog thumbnail">
+
+                            <div class="blog-list-content">
+                                <h3>We Believe in Quality</h3>
+                                <p>21st Dec 04 Comments</p>
+                            </div>
+                        </div>
+
+                        <!-- Small Blog 4 -->
+                        <div class="blog-list-item">
+                            <img src="./img/b6.jpg" alt="Blog thumbnail">
+
+                            <div class="blog-list-content">
+                                <h3>We Believe in Quality</h3>
+                                <p>21st Dec 04 Comments</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Logo Showcase Section -->
+    <section class="logo-showcase">
+
+        <div class="logo-container">
+
+            <!-- Logo 1 -->
+            <div class="brand-logo">
+                <p>✦ ·</p>
+                <h3>CREATIVE</h3>
+                <div class="logo-line"></div>
+                <p>LOREM IPSUM</p>
+            </div>
+
+            <!-- Logo 2 -->
+            <div class="brand-logo">
+                <p>♧ HIGH QUALITY ♧</p>
+                <div class="logo-pill">PREMIUM LABELS</div>
+                <p class="small-label">CREATIVE PASSION</p>
+            </div>
+
+            <!-- Logo 3 -->
+            <div class="brand-logo">
+                <p>VINTAGE PREMIUM</p>
+                <div class="logo-line"></div>
+                <h3 class="premium">premium labels</h3>
+                <div class="logo-line"></div>
+            </div>
+
+            <!-- Logo 4 -->
+            <div class="brand-logo">
+                <p>▬ THE CREATIVE DESIGNS ▬</p>
+                <h3>PREMIUM LABELS</h3>
+                <div class="logo-pill small-label">PREMIUM LABELS</div>
+            </div>
+
+            <!-- Logo 5 -->
+            <div class="brand-logo">
+                <div class="mountain">⌁⌃⌁</div>
+                <h3 class="premium">PREMIUM</h3>
+                <p>▬ CREATIVE DESIGNS ▬</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact Us Section -->
+    <section class="contact-section" id="contact">
+
+        <div class="contact-header">
+            <h2>If you need, Just drop us a line</h2>
+            <p>Who are in extremely love with eco friendly system.</p>
+        </div>
+
+        <form class="contact-form" action="#" method="post">
+
+            <!-- Left Column -->
+            <div class="contact-left">
+
+                <input type="text" name="name" placeholder="Enter your name" aria-label="Your name" required>
+
+                <input type="email" name="email" placeholder="Enter email address" aria-label="Email address" required>
+
+                <input type="text" name="subject" placeholder="Enter your subject" aria-label="Subject" required>
+
+            </div>
+
+            <!-- Right Column -->
+            <div class="contact-right">
+
+                <textarea name="message" placeholder="Message" aria-label="Your message" required></textarea>
+
+                <button type="submit" class="contact-btn">
+                    SEND MESSAGE
+                    <span>&rarr;</span>
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+    <!-- End Contact Us Section -->
+
+
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-main">
+
+                <!-- About Us -->
+                <div class="footer-column">
+                    <h3>About Us</h3>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit, sed do eiusmod tempor
+                        incididunt ut labore dolore magna aliqua.
+                    </p>
+                </div>
+
+                <!-- Contact Us -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit, sed do eiusmod tempor
+                        incididunt ut labore dolore magna aliqua.
+                    </p>
+
+                    <div class="footer-phones">
+                        <a href="tel:01265325689746">
+                            012-6532-568-9746
+                        </a>
+
+                        <a href="tel:01265325689748">
+                            012-6532-569-9748
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-column footer-newsletter">
+                    <h3>Newsletter</h3>
+
+                    <p>
+                        You can trust us, we only send offers,
+                        not a single spam.
+                    </p>
+
+                    <form class="footer-newsletter-form" action="#" method="post">
+
+                        <input type="email" name="newsletter_email" placeholder="Email address"
+                            aria-label="Email address" required>
+
+                        <button type="submit" aria-label="Subscribe">
+                            &rarr;
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Copyright and Social Links -->
+        <div class="footer-bottom">
+
+            <div class="footer-container footer-bottom-inner">
+
+                <p class="footer-copyright">
+                    Copyright &copy; 2026 All rights reserved |
+                    This template is made with &#9825; by
+                    <span>Colorlib</span>
+                </p>
+
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Twitter">♥</a>
+                    <a href="#" aria-label="Dribbble">◎</a>
+                    <a href="#" aria-label="Behance">Bē</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+    <!-- End Footer Section -->
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
